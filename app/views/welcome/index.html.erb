@@ -1,2 +1,45 @@
-<h1>Welcome to the photos app</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% if current_user %>
+  <h3>Welcome: <%= current_user.email %></h3>
+<% else %>
+  <div class="jumbotron">
+    <h2>Welcome to the Photo Management App!</h2>
+    <p class="lead">
+      You'll love managing your Photos with our application. Sign up!
+    </p>
+  </div>
+
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Standard</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$10 <small class="text-muted">/ mo</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Unlimited Image Uploads</li>
+            <li>Responsive design</li>
+            <li>Access anywhere</li>
+          </ul>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg btn-block btn-primary' %>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Premium Plus</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$20 <small class="text-muted">/ mo</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Unlimited Image Uploads</li>
+            <li>Responsive design</li>
+            <li>Access anywhere</li>
+            <li class='extra'>Unlimited projects</li>
+          </ul>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg btn-block btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
